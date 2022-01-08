@@ -1,5 +1,4 @@
 # log4j-fuzzer
-CVE-2021-44228 
 
 Gether All Domain, Subdomain, Directroty in a list 
 after that simply command this 
