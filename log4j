@@ -8,7 +8,7 @@ Cyan="\e[0;49;36m"
 STOP="\e[0m"
 
 echo -e " ${Cyan}                       #| Every Villain is a Hero in his Own Mind |#"
-echo -e " ${PINK}                       #| Vill4!n'S Team's Bug Hunting T00ls      |#"
+echo -e " ${PINK}                       #| Security Admirals Bug Hunting T00l      |#"
 echo -e " ${Gcyan}                       #| Script Name : Log4j_Fuzzer              |#"
 echo -e " ${RED}                       #| Coded by Mr_Vill4in || Version: 1.0     |#"
 echo -e "${STOP}"
